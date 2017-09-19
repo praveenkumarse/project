@@ -1,0 +1,31 @@
+<div class="ui-g-12 tabPanel">
+    <p-tabView>
+        <p-tabPanel header="Spaces">
+            <div class="main-category" *ngFor="let info of data?.category; index as i ">
+
+                <span (click)="addSubCategoryRow(i)"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                <input type="text" pInputText placeholder="Personal Room" />
+                <input type="text" pInputText [(ngModel)]="info.percentage" />
+                <input type="text" pInputText [(ngModel)]="info.value" />
+                <div>
+                    <div class="subTab" *ngFor="let subitem of info?.subcatogory; index as j  ">
+                        <input type="text" pInputText placeholder="Gym" />
+                        <input type="text" pInputText [(ngModel)]="subitem.subpercentage" />
+                        <input type="text" pInputText [(ngModel)]="subitem.subvalue" />
+                        <i class="fa fa-minus" aria-hidden="true" (click)="removeSubCategory(i,j)"></i>
+                    </div>
+                </div>
+            </div>
+            <span (click)="addCategoryRow()">Add Main Category</span>
+        </p-tabPanel>
+        <p-tabPanel header="Works">
+            Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, The_Godfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall, deepening The_Godfather's depiction of the dark side of the American dream.
+            In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy, killing the local Black
+            Hand Fanucci after he demands his customary cut of the tyro's business. With Fanucci gone, Vito's communal stature grows.
+        </p-tabPanel>
+        <p-tabPanel header="Subscription">
+            After a break of more than 15 years, director Francis Ford Coppola and writer Mario Puzo returned to the well for this third and final story of the fictional Corleone crime family. Two decades have passed, and crime kingpin Michael Corleone, now divorced
+            from his wife Kay has nearly succeeded in keeping his promise that his family would one day be completely legitimate.
+        </p-tabPanel>
+    </p-tabView>
+</div>

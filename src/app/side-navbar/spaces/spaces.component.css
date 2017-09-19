@@ -1,0 +1,21 @@
+.tabPanel {
+    background: #F6F6F6;
+    height: 100vh;
+}
+
+.subTab {
+    margin-left: 17px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.main-category {
+    margin-bottom: 15px;
+}
+
+input {
+    height: 35px;
+    border-radius: 8px;
+    border: 0.5px solid deepskyblue;
+    padding-left: 5px;
+}
