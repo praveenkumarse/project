@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SpacesComponent } from './spaces/spaces.component';
 import { SideNavbarComponent } from './../side-navbar/side-navbar.component';
-import { TabViewModule } from 'primeng/primeng';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TabViewModule,ButtonModule } from 'primeng/primeng';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 const routes: Routes = [
   {
     path: '', component: SideNavbarComponent,
@@ -16,6 +16,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    ButtonModule,
     CommonModule,
     TabViewModule,
     FormsModule, 

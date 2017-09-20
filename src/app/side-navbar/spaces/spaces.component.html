@@ -3,20 +3,24 @@
         <p-tabPanel header="Spaces">
             <div class="main-category" *ngFor="let info of data?.category; index as i ">
 
-                <span (click)="addSubCategoryRow(i)"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                <input type="text" pInputText placeholder="Personal Room" />
-                <input type="text" pInputText [(ngModel)]="info.percentage" />
-                <input type="text" pInputText [(ngModel)]="info.value" />
-                <div>
-                    <div class="subTab" *ngFor="let subitem of info?.subcatogory; index as j  ">
-                        <input type="text" pInputText placeholder="Gym" />
-                        <input type="text" pInputText [(ngModel)]="subitem.subpercentage" />
-                        <input type="text" pInputText [(ngModel)]="subitem.subvalue" />
+                <span (click)="closetab=i"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                <input type="text" pInputText placeholder="Personal Room" [(ngModel)]="info.name"  />
+                <input type="number" pInputText [(ngModel)]="info.waightage" (keyup)="updateWeightage()"/>
+                <input type="number" pInputText [(ngModel)]="info.calculate" />
+                <i class="fa fa-trash-o" aria-hidden="true"></i>                
+                <div [class.active]="i==closetab" class="close">
+                    <div class="subTab" *ngFor="let subitem of info?.sub_space_list; index as j  ">
+                        <input type="text" pInputText placeholder="Gym" [(ngModel)]="subitem.sub_name"/>
+                        <input type="number" pInputText [(ngModel)]="subitem.waightage" (keyup)="calculateSubDerivative(info.sub_space_list,i)" />
+                        <input type="number" pInputText [(ngModel)]="subitem.calculate" />
                         <i class="fa fa-minus" aria-hidden="true" (click)="removeSubCategory(i,j)"></i>
                     </div>
+                    <button pButton type="button" label="Add Sub Catgegory" (click)="addSubCategoryRow(i)" class="main_space_bttn"></button>
                 </div>
+
             </div>
-            <span (click)="addCategoryRow()">Add Main Category</span>
+            <button pButton type="button" label="Add Main Space" (click)="addCategoryRow()" class="main_space_bttn"></button>
+
         </p-tabPanel>
         <p-tabPanel header="Works">
             Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, The_Godfather parallels the young Vito Corleone's rise with his son Michael's spiritual fall, deepening The_Godfather's depiction of the dark side of the American dream.
